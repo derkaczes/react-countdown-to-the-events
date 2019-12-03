@@ -22,6 +22,7 @@ class App extends Component {
         };
         this.handleEditEvent = this.handleEditEvent.bind(this);
         this.handleSaveEvent = this.handleSaveEvent.bind(this);
+        this.handleRemoveEvent = this.handleRemoveEvent.bind(this);
     }
 
     handleEditEvent(val) {
@@ -45,10 +46,24 @@ class App extends Component {
         }));
     }
 
+    handleRemoveEvent(id) {
+        this.setState(prevState => ({
+            events: prevState.events.filter(el => el.id !== id)
+        }));
+    }
+
     render() {
         const events = this.state.events.map(el => {
-            return <Countdown key={el.id} name={el.name} hour={el.hour} minute={el.minute}/>
-        })
+            return (
+                <Countdown 
+                    key={el.id} 
+                    id={el.id}
+                    name={el.name} 
+                    hour={el.hour} 
+                    minute={el.minute}
+                    onRemove={id => this.handleRemoveEvent(id)}
+                />
+        )})
         return (
             <div className="app">
                 {events}
