@@ -5,15 +5,15 @@ const EditEvent = props => {
         <div className="edit-event">
             <div className="edit-event__input-group">
                 <label htmlFor="name">name </label>
-                <input type="text" id="name" name="name"/>
+                <input type="text" id="name" name="name" onChange={e => console.log(e.target.name, e.target.value)}/>
             </div>
             <div className="edit-event__input-group">
                 <label htmlFor="hour">hour </label>
-                <input type="tel" id="hour" name="hour"/>
+                <input type="tel" id="hour" name="hour" onChange={e => console.log(e.target.name, e.target.value)}/>
             </div>
             <div className="edit-event__input-group">
                 <label htmlFor="minute">minute </label>
-                <input type="tel" id="minute" name="minute"/>
+                <input type="tel" id="minute" name="minute" onChange={e => console.log(e.target.name, e.target.value)}/>
             </div>
             <button onClick={() => props.onSave()}>Add</button>
             <button>Cancel</button>

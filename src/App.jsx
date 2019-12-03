@@ -11,8 +11,9 @@ class App extends Component {
                 { id: 0, name: "śniadanie", time: "7:00" },
                 { id: 1, name: "obiad", time: "16:00" }
             ]
-        }
+        };
     }
+
     render() {
         const events = this.state.events.map(el => {
             return <Countdown key={el.id} name={el.name} time={el.time}/>
