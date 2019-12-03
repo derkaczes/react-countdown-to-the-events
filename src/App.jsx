@@ -1,13 +1,9 @@
 import React from 'react';
+import Countdown from './CountDown';
 
 const App = () => (
 <div>
-    <div className="countdown">
-        <strong>śniadanie</strong> - 07:00
-    </div>
-    <div className="countdown">
-        <strong>obiad</strong> - 16:00
-    </div>
+    <Countdown name="śniadanie" time="7:00"/>
 </div>
 );
 
