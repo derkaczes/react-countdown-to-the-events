@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Countdown from './CountDown';
+import EditEvent from './EditEvent';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +17,12 @@ class App extends Component {
         const events = this.state.events.map(el => {
             return <Countdown key={el.id} name={el.name} time={el.time}/>
         })
-        return <div className="app">{events}</div>;
+        return (
+            <div className="app">
+                {events}
+                <EditEvent onSave={() => alert("Test")}/>
+            </div>
+        );
     }
 }
 
