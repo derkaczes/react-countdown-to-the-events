@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import Countdown from './CountDown';
 import EditEvent from './EditEvent';
-
 import './App.css';
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
+            now: {
+                hour: new Date().getHours(),
+                minute: new Date().getMinutes(),
+                second: new Date().getSeconds()
+            },
             events: [
                 { id: 0, name: "śniadanie", hour: 7, minute: 0},
-                { id: 1, name: "obiad", hour: 16, minute: 0 }
+                { id: 1, name: "obiad", hour: 16, minute: 0 },
+                { id: 2, name: "granie", hour: 22 , minute: 0 }
             ],
             editedEvent: {
                 id: uniqid(),
@@ -87,6 +92,7 @@ class App extends Component {
                     name={el.name} 
                     hour={el.hour} 
                     minute={el.minute}
+                    timeNow={this.state.now}
                     onRemove={id => this.handleRemoveEvent(id)}
                     onEditInit={id => this.handleEditInit(id)}
                 />
