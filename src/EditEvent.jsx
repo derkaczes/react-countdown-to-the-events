@@ -7,7 +7,7 @@ import {
     isValidMinute,
     isValidHour
  } from "./utils";
-
+ import './EditEvent.css';
 
 const EditEvent = props => {
     const isFormValid = 
@@ -49,7 +49,7 @@ const EditEvent = props => {
                 />
             </div>
             <button disabled={!isFormValid} onClick={() => props.onSave()}>Add</button>
-            <button>Cancel</button>
+            <button onClick={() => props.onCancel()}>Cancel</button>
         </div>
     );
 };
@@ -59,7 +59,8 @@ EditEvent.propTypes = {
     hour: PropTypes.number,
     minute: PropTypes.number,
     onInputChange: PropTypes.func,
-    onSave: PropTypes.func
+    onSave: PropTypes.func,
+    onCancel: PropTypes.func
 };
 
 export default EditEvent;
