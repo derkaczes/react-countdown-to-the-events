@@ -1,9 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isValidNumberInput, parseInputAsNumber } from "./utils";
+import { 
+    isValidNumberInput, 
+    parseInputAsNumber, 
+    isValidName,
+    isValidMinute,
+    isValidHour
+ } from "./utils";
 
 
 const EditEvent = props => {
+    const isFormValid = 
+        isValidName(props.name) &&
+        isValidHour(props.hour) &&
+        isValidMinute(props.minute);
     return (
         <div className="edit-event">
             <div className="edit-event__input-group">
@@ -38,7 +48,7 @@ const EditEvent = props => {
                     onChange={e => props.onInputChange({ [e.target.name]: parseInputAsNumber(e.target.value)})}
                 />
             </div>
-            <button onClick={() => props.onSave()}>Add</button>
+            <button disabled={!isFormValid} onClick={() => props.onSave()}>Add</button>
             <button>Cancel</button>
         </div>
     );
