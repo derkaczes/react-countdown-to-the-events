@@ -30,8 +30,7 @@ class Overlay extends Component {
                 <span onClick={() => this.toggleVisible()}>info</span>
                 <div className={overlayClass}>
                     <span className="overlay__close" onClick={() => this.toggleVisible()}>close</span>
-                    <h1>title</h1>
-                    <p>text</p>
+                    {this.props.children}
                 </div>
             </div>
         );
