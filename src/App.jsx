@@ -26,11 +26,31 @@ class App extends Component {
             }
         };
 
+        this.timer = this.timer.bind(this);
         this.handleEditEvent = this.handleEditEvent.bind(this);
         this.handleSaveEvent = this.handleSaveEvent.bind(this);
         this.handleRemoveEvent = this.handleRemoveEvent.bind(this);
         this.handleEditInit = this.handleEditInit.bind(this);
         this.handleEditCancel = this.handleEditCancel.bind(this);
+    }
+
+    timer() {
+        this.setState({
+            now: {
+                hour: new Date().getHours(),
+                minute: new Date().getMinutes(),
+                second: new Date().getSeconds()
+            } 
+        });
+    }
+
+    componentDidMount() {
+        const intervalId = setInterval(this.timer, 1000);
+        this.setState({intervalId: intervalId});
+    }
+
+    componentDidUnmount() {
+        clearInterval(this.state.intervalId);
     }
 
     handleEditEvent(val) {
