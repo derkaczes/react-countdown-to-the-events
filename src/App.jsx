@@ -13,11 +13,7 @@ class App extends Component {
                 minute: new Date().getMinutes(),
                 second: new Date().getSeconds()
             },
-            events: [
-                // { id: 0, name: "śniadanie", hour: 7, minute: 0},
-                // { id: 1, name: "obiad", hour: 16, minute: 0 },
-                // { id: 2, name: "granie", hour: 22 , minute: 0 }
-            ],
+            events: [],
             editedEvent: {
                 id: uniqid(),
                 name: "",
@@ -56,7 +52,6 @@ class App extends Component {
     }
 
     handleEditEvent(val) {
-        //this.setState({editedEvents: val});
         this.setState(prevState => {
             return {
                 editedEvent: Object.assign(prevState.editedEvent, val)
