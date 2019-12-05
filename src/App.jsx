@@ -81,8 +81,8 @@ class App extends Component {
             return {
                 events: updatedEvents,
                 editedEvent: {id: uniqid(), name: "", hour: -1, minute: -1}
-            }
-        })
+            };
+        }, () => localStorage.setItem("events", JSON.stringify(this.state.events)));
     }
 
     handleRemoveEvent(id) {
